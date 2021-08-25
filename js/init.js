@@ -39,3 +39,8 @@ var getJSONData = function(url){
         return result;
     });
 }
+/*function mostraUsuario() {
+  let mostrarUs = document.form.user.value
+  document.getElementById("muestra").innerHTML = mostrarUs;
+  
+}document.addEventListener("DOMContentLoaded", function(e){ mostrarUs()})*/
