@@ -39,8 +39,11 @@ var getJSONData = function(url){
         return result;
     });
 }
-/*function mostraUsuario() {
-  let mostrarUs = document.form.user.value
-  document.getElementById("muestra").innerHTML = mostrarUs;
-  
-}document.addEventListener("DOMContentLoaded", function(e){ mostrarUs()})*/
+
+document.addEventListener("DOMContentLoaded", function (e) {
+document.getElementById('datos').innerHTML=`Bienvenido : `+`<img src='img/iconoUsuario.svg'>` +localStorage.getItem('usnombre')
+});
+function nombreUs (){
+  var usuario= document.getElementById('usuario').value;
+  localStorage.setItem('usnombre',usuario);
+}

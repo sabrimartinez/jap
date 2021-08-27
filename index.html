@@ -25,7 +25,7 @@
       align-items: center;
       padding-top: 40px;
       padding-bottom: 40px;
-      background-color: #f5f5f5;
+    
     }
 
     .signin {
@@ -34,32 +34,35 @@
       padding: 15px;
       margin: auto;
     }
+    
+   
+  
   </style>
 
 </head>
 
 <body class="text-center">
-
-  <form action ="home.html"  >
-    <img src="img/login.png" alt="" width=750 px height=300 px>
-    <h1 class="h3 mb-3 font-weight-normal">Por favor, registrese
+ 
+ <div id= fromularios >
+  <img id="imagenLogin" src="img/login.png" alt="Imagen de Ingreso" >
+  <form  id= "formu" action="home.html"  >
+   
+    <h1 class="h3 mb-3 font-weight-normal">Bienvenido! Ingrese:
     </h1>
-    <input type= "text" placeholder="Nombre de usuario" class="form-control" required></input>
+    <input id= "usuario" type= "text" placeholder="Nombre de usuario" class="form-control" required></input>
 
-    <input  type= "text" placeholder="Contraseña" class="form-control" required></input>
-  
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Recordar
-      </label>
-    </div>
-    
-
-    <input type= "submit" value="Ingresar";   ></input>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+    <input id="contraseña" type= "text" placeholder="Contraseña" class="form-control" required></input>
+  <br>
+   
+    <input id="btnIngreso" type= "submit" onclick="nombreUs () "  value="Ingresar" ></input>
+   
   </form>
+   
+ 
+  <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+</div>
 
   <script src="js/init.js"></script>
-  <script src="js/login.js"></script>
+ <script src="js/formularioDeRegistro.js"></script>
 </body>
 </html>

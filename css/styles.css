@@ -139,3 +139,36 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+form#formu {
+  
+    position: relative;
+  
+    width  : 80%;
+    height : 30%;
+    margin : 0 auto;
+  
+    background:transparent
+  
+}
+
+
+
+div#formularios
+{
+  position: relative;
+  
+  width  : 80%;
+  height : 30%;
+  margin-left: 50%;
+background: transparent;
+}
+body.text-center{
+  background-color: #388dd35e;
+}
+img#imagenLogin{
+  
+ position: top;
+  height:30%; 
+  width:50%;
+  margin-block-start: 12%;
+}

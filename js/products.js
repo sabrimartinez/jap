@@ -27,7 +27,7 @@ function showProductos(){
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
                         <h4 class="mb-1">`+ show.name +`</h4>
-                        <small class="text-muted">`+"Precio:  " +show.currency +"  "+show.cost+" <br/>"+"  Cantidad disponible:   "+ show.soldCount +` artículos</small>
+                        <small class="text-muted">`+"Precio:  " +show.currency +"  "+show.cost+" <br/>"+"  Cantidad vendidos:   "+ show.soldCount +` artículos</small>
                     </div>
                     <p>${show.description} </p>
                 </div>
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok")
         {listadoProduct = resultObj.data;
         
-            showProductos(listadoProduct);
+            showProductos(listadoProduct)
             ordenarYMostrarProductos(OrdenAscendente, resultObj.data);  
          
         }
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         minPrecio = undefined;
         maxPrecio= undefined;
 
-       showProduct();
+       showProductos();
     });
 
     document.getElementById("botonFiltrar").addEventListener("click", function(){
