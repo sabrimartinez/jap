@@ -40,10 +40,9 @@ var getJSONData = function(url){
     });
 }
 
-document.addEventListener("DOMContentLoaded", function (e) {
-document.getElementById('datos').innerHTML=`Bienvenido : `+`<img src='img/iconoUsuario.svg'>` +localStorage.getItem('usnombre')
-});
 function nombreUs (){
   var usuario= document.getElementById('usuario').value;
   localStorage.setItem('usnombre',usuario);
 }
+
+
