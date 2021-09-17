@@ -1,7 +1,7 @@
 const OrdenAscendente = "Menor Precio";
 const OrdenDescendente = "Mayor Precio";
 const OrdenRangoDePrecios = "Precio";
-var currentCategorieslistadoProduct = [];
+
 var currentSortCriterio = undefined;
 var minPrecio = undefined;
 var maxPrecio = undefined;
@@ -18,23 +18,25 @@ function showProductos(){
         if (((minPrecio == undefined) || (minPrecio != undefined && parseInt(show.cost) >= minPrecio)) &&
         ((maxPrecio == undefined) || (maxPrecio != undefined && parseInt(show.cost) <= maxPrecio))){
 
-        insertarEnLis += `
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + show.imgSrc + `" alt="` + show.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ show.name +`</h4>
-                        <small class="text-muted">`+"Precio:  " +show.currency +"  "+show.cost+" <br/>"+"  Cantidad vendidos:   "+ show.soldCount +` artículos</small>
+            insertarEnLis += `
+            <div class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="` + show.imgSrc + `" alt="` + show.description + `" class="img-thumbnail">
                     </div>
-                    <p>${show.description} </p>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ show.name +`</h4>
+                            <small class="text-muted">`+"Precio:  " +show.currency +"  "+show.cost+" <br/>"+"  Cantidad vendidos:   "+ show.soldCount +` artículos</small>
+                        </div>
+                        <p>${show.description} </p>
+                        <a   href="product-info.html" class="list-group-item list-group-item-action list-group-item-primary">Ver Producto
+         </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        `
-    }
+            `
+        }
     }
         document.getElementById("lis").innerHTML = insertarEnLis;
     }
