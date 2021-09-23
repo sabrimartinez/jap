@@ -40,27 +40,35 @@
   </style>
 
 </head>
-
 <body class="text-center">
+  
+  
+ <div id= fromularios  class="container mb-3 shadow-lg p-3 w-25 p-3 "  >
  
- <div id= fromularios >
-  <img id="imagenLogin" src="img/login.png" alt="Imagen de Ingreso" >
   <form  id= "formu" action="home.html"  >
-   
-    <h1 class="h3 mb-3 font-weight-normal">Bienvenido! Ingrese:
-    </h1>
-    <input id= "usuario" type= "text" placeholder="Nombre de usuario" class="form-control" required></input>
+    
+    <img id="imagenLogin" src="img/login.png" alt="Imagen de Ingreso" class="rounded-pill">
 
+    <h1 class="h4 mb-3 font-weight-normal"> Ingrese:
+    </h1>
+  <div class="row"><div class="col">
+    <label > Nombre: </label>
+    <input id= "usuario" type= "text" placeholder="Nombre de usuario" class="form-control" required></input>
+  </div>
+  <div class="col">
+    <label >Contraseña</label>
     <input id="contraseña" type= "text" placeholder="Contraseña" class="form-control" required></input>
-  <br>
-   
-    <input id="btnIngreso" type= "submit" onclick="nombreUs () "  value="Ingresar" ></input>
-   
+  <br></div>
+</div><div class="col">
+    <input id="btnIngreso" type= "submit" onclick="nombreUs () " class="w-100 btn btn-lg btn-secondary" value="Ingresar" ></input>
+  </div>
   </form>
    
  
   <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
 </div>
+
+
 
   <script src="js/init.js"></script>
 

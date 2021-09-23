@@ -11,7 +11,7 @@
 height:80vh;
 padding:5em inherit;
 margin-bottom:0;
-background-color: #53C0FB;
+
   background: url('../img/cover_back.png');
 background-size:contain;
 background-position: center;
@@ -162,15 +162,15 @@ form#formu {
 
 div#formularios
 {
-position: relative;
+position:relative;
 
-width  : 80%;
+width  : 45%;
 height : 30%;
 margin-left: 50%;
 background: transparent;
 }
 body.text-center{
-  background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+  background-image: linear-gradient(to right, #151541 0%, #00c9ff 100%);
 }
 img#imagenLogin{
 
@@ -205,27 +205,37 @@ box-shadow: 0 0 6px rgba(0,0 0,.5)
 }
 
 .nav li a:hover {
-background-color: rgba(0, 0, 0, 0.924);
+background-color: rgba(214, 225, 230, 0.924);
 }
 
-.nav li ul {
+/*.nav li ol {
 display:none;
 position:absolute;
 min-width:140px;
 }
 
-.nav li:hover > ul {
+.nav li:hover > ol {
 display:block;
 }
 
-.nav li ul li {
+.nav li ol li {
 position:relative;
 }
 
-.nav li ul li ul {
+.nav li ol li ol {
 right:-140px;
 top:0px;
+}*/
+button#cierre{
+  color:rgba(209, 240, 219, 0.924);
+  font-weight:bold;
+  font-family:Arial, Helvetica, sans-serif;
 }
+
+.dropdown-menu {
+background-color: rgba(31, 18, 77, 0.986);
+}
+
 img.menuIcono {
 position: fixed;
 top: 30px;
@@ -243,7 +253,7 @@ box-shadow: 0 0 6px rgba(0,0 0,.5)
   top: 0;
   right: 0;
   width: 30vw;
-  height: 70%;
+  height: 60%;
   background-image: linear-gradient(to top, rgba(22, 62, 114, 0.698) 0%, #537895 100%);
   display:flex;
   flex-direction:column;
@@ -257,8 +267,9 @@ box-shadow: 0 0 6px rgba(0,0 0,.5)
 }
 .menuNavegacion a {
   color:rgba(209, 240, 219, 0.924);
-  font-weight:bold;
+  font-weight:lighter;
   font-family:Arial, Helvetica, sans-serif;
+  height:45%;
 
 }
   .spread{
@@ -267,9 +278,69 @@ box-shadow: 0 0 6px rgba(0,0 0,.5)
 .container{
   z-index:1; /*El z-index de la caja container es menor al de la caja menunavegacion por esto queda detras*/
    }
-  /*body{ 
-    background-image: linear-gradient(-225deg, #20E2D7 0%, #F9FEA5 100%);}*/
+ 
     .far fa-star {
       color: black;
     }
  
+ /*deslizador de imagenes*/ 
+    .containerGaleria{
+      margin:10%;
+      background-color: white;
+      width: 900px;
+      padding: 30px;
+    }
+    
+
+    ul.slider{
+      position: relative;
+      width: 800px;
+      height: 300px;
+    }
+    
+    ul.slider li {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        opacity: 0;
+        width: inherit;
+        height: inherit;
+        transition: opacity .5s;
+        background:#fff;
+    }
+    
+    ul.slider li img{
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    
+    ul.slider li:first-child {
+        opacity: 1; /*Mostramos el primer <li>*/
+    }
+    
+    ul.slider li:target {
+        opacity: 1; /*Mostramos el <li> del enlace que pulsemos*/
+    }
+    
+    .menu{
+      text-align: center;
+      margin: 20px;
+    }
+    
+    .menu li{
+      display: inline-block;
+      text-align: center;
+    }
+    
+    .menu li a{
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      background-color: grey;
+      padding: 10px;
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+      border-radius: 100%;
+    }

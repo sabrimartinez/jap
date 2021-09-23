@@ -28,20 +28,60 @@
      function showImgGallery(array){
      
          let imgProducto = "";
+         
      
-         for(let i = 0; i < array.length; i++){
-             let image= array[i];
+        // for(let i = 0; i < array.length; i++){
+             let image= array;
      
-             imgProducto+= `
+             imgProducto+= /*`
              <div class="col-lg-3 col-md-4 col-6">
                  <div class="d-block mb-4 h-100">
-                     <img class="img-fluid img-thumbnail" src="` + image+ `" alt="">
+                     <img class="img-fluid img-thumbnail" src="` + image[0]+ `" alt="">
                  </div>
-             </div>
+             </div>*/
+            
+             ` <div class="d-block mb-4 h-100">
+         <ul class="slider">
+         <li id="slide0">
+           <img src="` + image[0]+ `" class="img-fluid img-thumbnail" />
+         </li>
+         <li id="slide1">
+           <img src="` + image[1]+ `" class="img-fluid img-thumbnail" />
+         </li>
+         <li id="slide2">
+           <img src="` + image[2]+ `"  class="img-fluid img-thumbnail"/>
+         </li>
+         <li id="slide3">
+         <img src="` + image[3]+ `"  class="img-fluid img-thumbnail"/>
+       </li>
+       <li id="slide4">
+       <img src="` + image[4]+ `" class="img-fluid img-thumbnail" />
+     </li>
+       </ul>
+
+       <ul class="menu">
+       <li>
+         <a href="#slide0">1</a>
+       </li>
+       <li>
+         <a href="#slide1">2</a>
+       </li>
+        <li>
+         <a href="#slide2">3</a>
+       </li>
+       <li>
+         <a href="#slide3">4</a>
+       </li>
+       <li>
+         <a href="#slide4">5</a>
+       </li>
+     </ul>
+     </div>
              `
-     
+             
              document.getElementById("imgI").innerHTML = imgProducto;
-         }
+            
+        // }
      }
 
      document.addEventListener("DOMContentLoaded", function(e){

@@ -11,7 +11,7 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -38,18 +38,27 @@
   <header class="header" id="inicio">
     <img src="img/menuIcono.svg" class='menuIcono'></img>
     <nav class="menuNavegacion">
-      <ul class="nav"><li><div class="header">
-        <a class="py-2 d-none d-md-inline-block" href="#" id="nombreUsuario" ></a>
-    </div> 
-   <ul><button id="cierre" class="py-2 d-none d-md-inline-block" >Cierre Sesion</button></ul>
-    
+
+      <div class="dropdown ">
+        <button  class=" alert-info" href="#" id="nombreUsuario"   type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="cart.html" >Mi Carrito <i class='bx bxs-cart  bx-tada'></i>  </a>
+          <a class="dropdown-item" href="my-profile.html">Mi Perfil <i class='bx bxs-user-account bx-burst'></i></a>
+          <button class="dropdown-item" id="cierre" href="#">Cerrar Sesion <i class='bx bx-run bx-fade-right' ></i></button>
+        </div>
+      </div>
+
+      
   </li></ul>
-      <a class="py-2 d-none d-md-inline-block" href="home.html">Home</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <a class="py-2 d-none d-md-inline-block " href="home.html"><i class='bx bxs-home' ></i>  Home</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html"><i class='bx bx-list-ul'></i>   Categorías</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html"> <i class='bx bxs-purchase-tag' ></i>   Productos</a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html"> <i class='bx bxs-dollar-circle'></i>   Vender</a>
+
   </nav>
+</header>
 
   <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">

@@ -14,6 +14,13 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+
 </head>
 
 <body>
@@ -21,53 +28,61 @@
   <header class="header" id="inicio">
     <img src="img/menuIcono.svg" class='menuIcono'></img>
     <nav class="menuNavegacion">
-      <ul class="nav"><li><div class="header">
-        <a class="py-2 d-none d-md-inline-block" href="#" id="nombreUsuario" ></a>
-    </div> 
-   <ul><button id="cierre" class="py-2 d-none d-md-inline-block" >Cierre Sesion</button></ul>
-    
+
+      <div class="dropdown ">
+        <button  class=" alert-info" href="#" id="nombreUsuario"   type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="cart.html" >Mi Carrito <i class='bx bxs-cart  bx-tada'></i>  </a>
+          <a class="dropdown-item" href="my-profile.html">Mi Perfil <i class='bx bxs-user-account bx-burst'></i></a>
+          <button class="dropdown-item" id="cierre" href="#">Cerrar Sesion <i class='bx bx-run bx-fade-right' ></i></button>
+        </div>
+      </div>
+
+      
   </li></ul>
-      <a class="py-2 d-none d-md-inline-block" href="home.html">Home</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <a class="py-2 d-none d-md-inline-block " href="home.html"><i class='bx bxs-home' ></i>  Home</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html"><i class='bx bx-list-ul'></i>   Categorías</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html"> <i class='bx bxs-purchase-tag' ></i>   Productos</a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html"> <i class='bx bxs-dollar-circle'></i>   Vender</a>
+
   </nav>
-  
+</header>
   <main role="main">
     <div class="container mt-5">
       <div class="text-center p-4">
-        <h1>Descripción del Producto</h1>
+        <h1  class="animate__animated animate__bounce">Descripción del Producto</h1>
         <p class="lead">Encontrarás aquí toda la información del producto seleccionada.</p>
         <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea la categoría
           seleccionada previamente, siempre se visualizará la presente: <strong>Autos</strong>.</p>
       </div>
-      <h3 id="nombreI"></h3>
+      <h3 id="nombreI" class="animate__animated animate__backInLeft"></h3>
       <hr class="my-3">
       <dl>
-        <dt>Precio</dt>
+        <dt class="animate__animated animate__backInLeft">Precio</dt>
         <dd>
-          <p id="precioI" >$USD</p>
+          <p id="precioI" class="animate__animated animate__backInLeft" >$USD</p>
         </dd>
 
-        <dt>Descripción</dt>
+        <dt class="animate__animated animate__backInLeft">Descripción</dt>
         <dd>
           <p id="descI"></p>
         </dd>
 
-        <dt>Cantidad de productos vendidos</dt>
+        <dt class="animate__animated animate__backInLeft">Cantidad de productos vendidos</dt>
         <dd>
           <p id="cantidadV"></p>
         </dd>
 
-        <dt> categoría</dt>
+        <dt class="animate__animated animate__backInLeft"> categoría</dt>
         <dd>
-          <p id="categoriaI"></p>
+          <p id="categoriaI" class="animate__animated animate__backInLeft"></p>
         </dd>
 
         <dt>Imágenes ilustrativas</dt>
         <dd>
-          <div class="row text-center text-lg-left pt-2" id="imgI">
+          <div class="containerGaleria shadow-lg p-3 mb-5 bg-body rounded  " id="imgI">
           </div>
         </dd>
       </dl>
