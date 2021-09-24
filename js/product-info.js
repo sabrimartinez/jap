@@ -28,17 +28,10 @@
      function showImgGallery(array){
      
          let imgProducto = "";
-         
-     
-        // for(let i = 0; i < array.length; i++){
+        
              let image= array;
      
-             imgProducto+= /*`
-             <div class="col-lg-3 col-md-4 col-6">
-                 <div class="d-block mb-4 h-100">
-                     <img class="img-fluid img-thumbnail" src="` + image[0]+ `" alt="">
-                 </div>
-             </div>*/
+             imgProducto+=
             
              ` <div class="d-block mb-4 h-100">
          <ul class="slider">
