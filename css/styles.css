@@ -208,24 +208,7 @@ box-shadow: 0 0 6px rgba(0,0 0,.5)
 background-color: rgba(214, 225, 230, 0.924);
 }
 
-/*.nav li ol {
-display:none;
-position:absolute;
-min-width:140px;
-}
 
-.nav li:hover > ol {
-display:block;
-}
-
-.nav li ol li {
-position:relative;
-}
-
-.nav li ol li ol {
-right:-140px;
-top:0px;
-}*/
 button#cierre{
   color:rgba(209, 240, 219, 0.924);
   font-weight:bold;
