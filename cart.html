@@ -33,9 +33,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
+  
 </head>
 
 
@@ -166,8 +165,8 @@
               <a href="#" class="btn btn-link">Seleccionar </a>
               <hr class="mb-4">
               <br>
-<a href="#" id="vaciar-carrito" class="btn btn-danger  ">Vaciar Carrito</a>
-<a href="#" id="procesar-pedido" class="btn btn-success" onclick="insertarCompra()">Procesar
+<a href="#" id="vaciar-carrito" class="btn btn-danger  " onclick="btnCompra()">Vaciar Carrito</a>
+<a href="#" id="procesar-pedido" class="btn btn-success" onclick="btnCompra()">Procesar
     Compra</a>
     <br>
     <br>
@@ -184,6 +183,8 @@
       <div></div>
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>

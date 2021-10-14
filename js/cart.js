@@ -59,3 +59,15 @@ document.addEventListener("DOMContentLoaded", function(e){
        
        document.getElementById("total").innerHTML=(subTotal).toFixed(2)
       }
+
+
+      
+function btnCompra (){
+
+
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Esta acción aún no funciona!',
+        footer: '<a href="cart.html">Te gustaria seguir mirando?</a>'
+      })}

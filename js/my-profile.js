@@ -14,8 +14,27 @@
     
    
       $("#cierre").click(function(){
-      $(location).attr('href','index.html');
-      localStorage.clear();
+
+        Swal.fire({
+          title: 'Ya te vas?',
+          text: "Tenemos muchas ofertas para ti!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Cerrar Sesión'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(
+              'Sesión Cerrada!',
+              'Vuele pronto!'
+            )
+            $(location).attr('href','index.html');
+            localStorage.clear();
+          }
+        })
+
+     
       
      })
     
