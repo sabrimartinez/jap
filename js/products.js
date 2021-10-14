@@ -19,22 +19,28 @@ function showProductos(){
         ((maxPrecio == undefined) || (maxPrecio != undefined && parseInt(show.cost) <= maxPrecio))){
 
             insertarEnLis += `
+
+
             <div class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + show.imgSrc + `" alt="` + show.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ show.name +`</h4>
-                            <small class="text-muted">`+"Precio:  " +show.currency +"  "+show.cost+" <br/>"+"  Cantidad vendidos:   "+ show.soldCount +` artículos</small>
-                        </div>
-                        <p>${show.description} </p>
-                        <a   href="product-info.html" class="list-group-item list-group-item-action list-group-item-primary">Ver Producto
-         </a>
-                    </div>
+            <div class="row">
+                <div class="col-3">
+                    <img src="` + show.imgSrc + `" alt="` + show.description + `" class="img-thumbnail">
                 </div>
+                <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1">`+ show.name +`</h4>
+                        <small class="text-muted precio">`+"Precio:  " +show.currency +"  "+show.cost+" <br/>"+"  Cantidad vendidos:   "+ show.soldCount +` artículos</small>
+                    </div>
+                    <p>${show.description} </p>
+                    <a   href="product-info.html" class=" btn btn-link">Ver Producto
+     </a>
+                </div>
+                <div class="col-3">  
+                <a href="#" class="btn btn-block btn-primary agregar-carrito" >Comprar</a> </div>
+               
             </div>
+        </div>
+
             `
         }
     }
