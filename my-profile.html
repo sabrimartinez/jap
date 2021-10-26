@@ -9,10 +9,11 @@
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-
+  <link src="//cdn.jsdelivr.net/npm/sweetalert2@11"></link>
 
   <style>
     .bd-placeholder-img {
@@ -29,16 +30,23 @@
         font-size: 3.5rem;
       }
     }
+    
+
   </style>
+  
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
+ 
+
+
 </head>
 
 <body>
    
   <header class="header" id="inicio">
-    <img src="img/menuIcono.svg" class='menuIcono'></img>
+    <img id="aquiTambien" src="img/menuIcono.svg" class='menuIcono'></img>
     <nav class="menuNavegacion">
 
       <div class="dropdown ">
@@ -61,14 +69,150 @@
 
   </nav>
 </header>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
+
+
+<img type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" src="img/iconoEditarPerfil.png" style='color:#0f8cef'  class="editarPerfil" ></img>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Datos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container p-5">
+          <div class="alert " role="alert" style="position: relative; width:auto; top: 0; background-color: rgba(127, 165, 145, 0.281);">
+            <form>
+<!-- avatares-->
+
+    
+              <div class="row"><div class="col-md-6 mb-3">
+                <select  id="selectorDeAvatares" 
+                class="form-select form-select-sm " aria-label=".form-select-lg example"
+                 onclick="insertarImagen (avatars)" >
+                <option value="">Elija un avatar...</option>
+              </select>
+            </div> </div>
+            <div class="col" id="agregarAvatar"></div>
+ 
+<!-- avatares fin  -->
+
+              <div class="row">
+              <div class="col mb-3">
+               <i class='bx bxs-user' style='color:#176de8'  ></i>
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre"  >
+              </div>
+             
+              <div class="col mb-3">
+                <i class='bx bxs-user' style='color:#176de8'  ></i>
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="apellido" >
+              </div>
+            </div>
+      
+
       <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+      
+             <div class="row">
+              <div class="col mb-3">
+                <i class='bx bx-mail-send' style='color:#176de8' ></i>
+                <label for="email" class="form-label">Correo Electronico</label>
+                <input type="email" class="form-control" id="email" >
+              </div>
+       
+              <div class="col mb-3">
+                <i class='bx bxs-phone' style='color:#176de8' ></i>
+                <label for="telefono" class="form-label">Telefono de Contacto</label>
+                <input type="number" class="form-control" id="telefono" >
+              </div>
+      
+            </div>
+      <hr> 
+      
+             <div class="col sm-1">
+               <label for="edad" class="form-label">Selecciona tu Edad</label>
+               <input type="number" class="form-control"style="width : 30%; height : 20%" id="edad" min="0" required>
+                </div>
+ 
+              
+            </form>
+
+         
+          </div>
+          
+        </div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submit" id="guardar" class="btn btn-primary" onclick="guardarDatos ()" >Guardar Datos</button>
+      </div>
     </div>
   </div>
+</div>
+<!-- Fin del Modal -->
+
+<div class="container p-5 " >
+  <div class=" border border-2 shadow p-3 mb-5  bg-light rounded" role="alert" style="position: relative; width:auto; top: 0; background-color: rgba(127, 165, 145, 0.281);">
+ <br>
+
+ <br>
+    <div class="row">
+<div class="col text-center" ><h2 class="fst-italic" >Mi Perfil </h2> </div>
+<div class="col-1 " >
+  <img src="" class="rounded-circle" style="position: relative; width: 200%;right:200%;" 
+   id="aqui" alt=""></div>
+ </div>
+ 
+    <form>
+      <div class="row px-4">
+      <div class="col mb-3">
+       <i class='bx bxs-user' style='color:#176de8'  ></i>
+        <label for="nombre" class="form-label">Nombre:</label>
+        <label type="text" class="fst-italic" id="nombreGuardado">texto</label>
+      </div>
+     
+      <div class="col mb-3">
+        <i class='bx bxs-user' style='color:#176de8'  ></i>
+        <label for="apellido" class="form-label">Apellido:</label>
+        <label type="text" class="fst-italic" id="apellidoGuardado">texto</label>
+      </div>
+    </div>
+<hr>  
+
+     <div class="row px-4">
+      <div class="col mb-3">
+        <i class='bx bx-mail-send' style='color:#176de8' ></i>
+        <label for="email" class="form-label">Correo Electronico:</label>
+        <label type="text" class="fst-italic" id="emailGuardado">texto</label>
+      </div>
+
+      <div class="col mb-3">
+        <i class='bx bxs-phone' style='color:#176de8' ></i>
+        <label for="telefono" class="form-label">Telefono de Contacto:</label>
+        <label type="text" class="fst-italic" id="telefonoGuardado">texto</label>
+      </div>
+
+    </div>
+<hr>
+
+     <div class="col px-4">
+       <label for="edad" class="form-label">Edad:</label>
+       <label type="text" class="fst-italic" id="edadGuardado">texto</label>
+        </div>
+
+      
+    </form>
+
+  
+  </div>
+  
+</div> 
+
+
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
@@ -94,6 +238,10 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.1.9/dist/sweetalert2.all.min.js "></script>
+ <script src="js/traerDatosDeSession.js"> </script>
+ 
 </body>
 
 </html>

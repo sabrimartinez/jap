@@ -7,7 +7,9 @@ document.addEventListener("DOMContentLoaded", function(e){
         {datos = resultObj.data;
               productoCarrito=datos.articles
           agregarCarro(productoCarrito);
-          sumarCant ()
+          sumarCant ();
+          agregarCostoEnvio();
+          arreglar()
        
     } 
      })});
@@ -61,6 +63,27 @@ document.addEventListener("DOMContentLoaded", function(e){
       }
 
 
+      function agregarCostoEnvio(value) {
+        let costo= document.getElementById("costo");
+        
+       
+        let insertoEnvio=0;
+            
+                insertoEnvio= (parseFloat(value / 100)*parseFloat(costo.innerHTML))+parseFloat(costo.innerHTML);
+         document.getElementById("envio").innerHTML= parseFloat( value);
+          document.getElementById("total").innerHTML=insertoEnvio;
+      }
+      function arreglar(){
+        let envio = document.getElementById("envio");
+    
+        if (envio=== NaN)
+       { envio = "0"}
+       
+       
+
+       document.getElementById("envio").innerHTML= "0"
+    
+      }
       
 function btnCompra (){
 

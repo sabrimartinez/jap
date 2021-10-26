@@ -18,30 +18,20 @@ function showProductos(){
         if (((minPrecio == undefined) || (minPrecio != undefined && parseInt(show.cost) >= minPrecio)) &&
         ((maxPrecio == undefined) || (maxPrecio != undefined && parseInt(show.cost) <= maxPrecio))){
 
-            insertarEnLis += `
-
-
-            <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + show.imgSrc + `" alt="` + show.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ show.name +`</h4>
-                        <small class="text-muted precio">`+"Precio:  " +show.currency +"  "+show.cost+" <br/>"+"  Cantidad vendidos:   "+ show.soldCount +` artículos</small>
-                    </div>
-                    <p>${show.description} </p>
-                    <a   href="product-info.html" class=" btn btn-link">Ver Producto
-     </a>
-                </div>
-                <div class="col-3">  
-                <a href="#" class="btn btn-block btn-primary agregar-carrito" >Comprar</a> </div>
-               
-            </div>
-        </div>
-
-            `
+            insertarEnLis += 
+            
+            ` <div class="col-md-4">
+            <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
+              <img class="bd-placeholder-img card-img-top"  src="` + show.imgSrc + `">
+              <h3 class="m-3">${show.name }</h3>
+              <div class="card-body">
+                <p class="card-text">${show.description}</p>
+                <small class="text-muted precio">`+"Precio:  " +show.currency +"  "+show.cost+" <br/>"
+                +"  Cantidad vendidos:   "+ show.soldCount +` artículos</small>
+              </div>
+            </a>
+          </div>`
+            
         }
     }
         document.getElementById("lis").innerHTML = insertarEnLis;
