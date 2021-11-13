@@ -31,6 +31,18 @@
         font-size: 3.5rem;
       }
     }
+    .valido {
+      color:green;
+      border-color: green;
+      border-width: thick;
+    }
+
+    .novalido{
+       color: red;
+       border-color: red;
+       border-width: thick;
+
+    }
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -80,7 +92,7 @@
   <br>
   
   
-<div class=" container-md border border-success" style="background-color: rgb(241, 250, 210);">
+<div class=" container-sm  border border-success" style="background-color: rgb(241, 250, 210);">
 <table  id="lista-carrito"  class="table" >
   <thead>
     <tr>
@@ -99,7 +111,12 @@
       
   </tbody>
 </table>
+</div>
 
+<hr class="mb-4"> 
+<div class="container">
+
+          
 
 <hr class="mb-4">
               <h5 class="mb-3 text-success">Tipo de Envio</h5>
@@ -118,27 +135,6 @@
                 </div>
                 
               </div>
-<hr class="mb-4"> 
-
-              <h5 class="mb-3 text-success">Direccion de Envio</h5>  
-              <div class="row">
-                <div class="col">
-              <label > Nombre: </label>
-              <input type= "text"  class="form-control" required></input>
-            </div>
-            <div class="col">
-              <label >Numero de Puerta</label>
-              <input  type= "number"  class="form-control" required></input>
-            <br></div>
-            <div class="col">
-              <label >Esquina</label>
-              <input  type= "text"  class="form-control" required></input>
-              <div class="col">
-                <label >Observaciones</label>
-                <textarea  type="text" class="form-control" ></textarea>
-              <br></div>
-            <br></div>  </div>
-
  <hr class="mb-4">   
  <h4 class="mb-3 text-success">Costos</h4>
               <ul class="list-group mb-3">
@@ -163,16 +159,132 @@
                   </li>
                 </ul>
               <hr class="mb-4">
-              <h4 class="mb-3 text-success">Forma de Pago</h4>
-              <a href="#" class="btn btn-link">Seleccionar </a>
-              <hr class="mb-4">
+  
               <br>
-<a href="#" id="vaciar-carrito" class="btn btn-danger  " onclick="btnCompra()">Vaciar Carrito</a>
-<a href="#" id="procesar-pedido" class="btn btn-success" onclick="btnCompra()">Procesar
-    Compra</a>
+  <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">Realizar su Compra</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+
+  <div class="container-sm">
+    <h5 class="mb-3 text-success">Direccion de Envio</h5>
+    <form class="needs-validation" novalidate>
+      <div class="form-row">
+        
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom02">Calle </label>
+          <input id="calle" type="text" class="form-control" id="validationCustom02" value="" required>
+          <div class="valid-feedback">
+            Genial!
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom05">Número de Puerta</label>
+          <input id="numero" type="text" class="form-control" id="validationCustom05" required>
+          <div class="invalid-feedback">
+           Por favor indica el número de puerta
+          </div>
+          <div class="valid-feedback">
+            Genial!
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom03">Esquina</label>
+          <input id="esquina" type="text" class="form-control" id="validationCustom03" required>
+          <div class="invalid-feedback">
+            Por favor indica la esquina
+          </div>
+          <div class="valid-feedback">
+            Genial!
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom04">Localidad</label>
+          <select id="localidad"  class="custom-select" id="validationCustom04" required>
+            <option selected disabled value="">...</option>
+            <option>Montevideo</option>
+            <option>Interior</option>
+          </select>
+          <div class="valid-feedback">
+            Genial!
+          </div>
+          <div class="invalid-feedback">
+            Por favor indica tu localidad
+          </div>
+        </div>
+
+<div class="d-block my-3">
+  <h5 class="mb-3 text-success">Medio de pago</h5>
+<div class="custom-control custom-radio fw-bold">
+<input id="opcion1" type="radio" class="custom-control-input" name="publicationType"  required="">
+
+<label class="custom-control-label " for="opcion1">Tarjeta de Credito</label>
+
+</div>
+<div class="row fw-normal">
+  <div class="col-5">
+<label > Numero de Tarjeta: </label>
+<input id="numTarjeta" type= "text"  class="form-control" required></input>
+</div>
+<div class="col-5">
+<label >Código de seguridad</label>
+<input id="codigoSeguridad" type= "password"  class="form-control" required></input>
+</div>
+<div class="col-5">
+<label >Vencimiento (Mes/Año) : </label>
+<input id="vencimiento" type= "text"  class="form-control" required></input>
+
+</div>  </div>
+
+
+<br>
+
+<div class="custom-control custom-radio fw-bold">
+<input id="opcion2" type="radio" name="publicationType"  class="custom-control-input" required="">
+
+<label class="custom-control-label " for="opcion2">Cuenta Bancaria</label>
+<input type="text" class="form-control" id="cuentaBancaria" required >
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary"  data-bs-dismiss="modal">Close</button>
+
+<button id="comprar" class="btn btn-primary" onclick="compra()" type="submit" >Realizar Compra</button>   
+</div>
+</div>
+</div>
+</div>
+
+<label class="form-control" id="validationCustom06"></label>
+ 
+</form>
+
+</div>
+<button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+ Comprar
+  </button> 
+
+</div>
     <br>
     <br>
-  </div>
+
  
 
 
@@ -193,10 +305,29 @@
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/my-profile.js"></script>
-  <script src="js/pedido.js"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
  
-
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>
 </body>
 
 </html>

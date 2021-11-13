@@ -9,9 +9,28 @@ document.addEventListener("DOMContentLoaded", function(e){
           agregarCarro(productoCarrito);
           sumarCant ();
           agregarCostoEnvio();
-          arreglar()
-       
-    } 
+         
+          document.getElementById("envio").innerHTML= "0"
+          document.getElementById("total").innerHTML= "0"
+
+//Deshabilitar campos del modal
+document.getElementById('opcion1').addEventListener('click',()=>{
+  document.getElementById('cuentaBancaria').disabled=true;
+  document.getElementById('numTarjeta').disabled=false;
+  document.getElementById('codigoSeguridad').disabled=false;
+  document.getElementById('vencimiento').disabled=false;
+  
+
+  
+  document.getElementById('opcion2').addEventListener('click',()=>{
+    
+  document.getElementById('cuentaBancaria').disabled=false;
+  document.getElementById('numTarjeta').disabled=true;
+  document.getElementById('codigoSeguridad').disabled=true;
+  document.getElementById('vencimiento').disabled=true;
+  })
+})
+ } 
      })});
 
      function agregarCarro(array){
@@ -19,12 +38,12 @@ document.addEventListener("DOMContentLoaded", function(e){
       let insertar ="";
 
      for (let i = 0; i < array.length; i++) {
-       const element = array[i];  
+       let element = array[i];  
       if (element.currency==="USD"){
         element.unitCost = element.unitCost*40;
       }
       
-       insertar+= `<tr>
+       insertar+= `<tr class="fila${i}">
        <th scope="row"></th>
        <td ><img src="${element.src}"  class = "img-responsive" width = "20%" 
        alt="..." ></td>
@@ -32,15 +51,17 @@ document.addEventListener("DOMContentLoaded", function(e){
        <td >UYU</td>
        <td class="precio" >${element.unitCost}</td>
        
-       <td > <input type="number" min="0" class="form-control" onchange="sumarCant()" 
+       <td > <input type="number" min="0" class="form-control tabla" onchange="sumarCant()" 
        id="Cantidad${i}" value="${element.count}">
        </td>
-       <td class="s"> <span id="subTotal${i}"></span></td>
+       <td class="s"> <span class ="subTotalArticulo" id="subTotal${i}"></span></td>
+       <td ><button id =${i} class="btn btn-danger buttonDelete" type="button" onclick =" removerArticulo${i}()">X
+       </button></td>
      </tr>
-     <div ></div>` 
+     ` 
      }
         document.getElementById("contenido").innerHTML+=insertar;
-    
+       
      }
       function sumarCant (){
         let precio = document.getElementsByClassName("precio");
@@ -53,10 +74,8 @@ document.addEventListener("DOMContentLoaded", function(e){
           sumar= parseFloat(precio[i].innerHTML) * parseFloat(cantidad[i].value);
         subTotal+= sumar
         document.getElementById("subTotal"+i).innerHTML=(sumar).toFixed(2);
-      }
-        
-        
-       
+    }
+
        document.getElementById("costo").innerHTML=(subTotal).toFixed(2);
        
        document.getElementById("total").innerHTML=(subTotal).toFixed(2)
@@ -69,28 +88,71 @@ document.addEventListener("DOMContentLoaded", function(e){
        
         let insertoEnvio=0;
             
-                insertoEnvio= (parseFloat(value / 100)*parseFloat(costo.innerHTML))+parseFloat(costo.innerHTML);
-         document.getElementById("envio").innerHTML= parseFloat( value);
-          document.getElementById("total").innerHTML=insertoEnvio;
+        insertoEnvio= (parseFloat(value / 100)*parseFloat(costo.innerHTML))+parseFloat(costo.innerHTML);
+        document.getElementById("envio").innerHTML= parseFloat(value / 100)*parseFloat(costo.innerHTML);
+        document.getElementById("total").innerHTML=insertoEnvio;  
       }
-      function arreglar(){
-        let envio = document.getElementById("envio");
-    
-        if (envio=== NaN)
-       { envio = "0"}
-       
-       
+   
 
-       document.getElementById("envio").innerHTML= "0"
-    
+      function removerArticulo0() {
+        var fila0 = document.getElementsByClassName('fila0');
+       
+       $(fila0).remove();
+       sumarCant ();
+       agregarCostoEnvio();
       }
+      function removerArticulo1() {
+        
+        var fila1= document.getElementsByClassName('fila1');
+        
       
-function btnCompra (){
+       $(fila1).remove();
+       
+       sumarCant ();
+       agregarCostoEnvio(); }
 
+function compra(){
+  let calle = document.getElementById('calle').value;
+  let num = document.getElementById('numero').value;
+  let esquina = document.getElementById('esquina').value;
+  let localidad = document.getElementById('localidad').value;
 
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Esta acción aún no funciona!',
-        footer: '<a href="cart.html">Te gustaria seguir mirando?</a>'
-      })}
+  let tarjeta= document.getElementById('numTarjeta').value;
+  let codigo= document.getElementById('codigoSeguridad').value;
+  let vencimiento=document.getElementById('vencimiento').value;
+  let cuenta= document.getElementById('cuentaBancaria').value;
+  
+  
+let opcion1 = document.getElementById('opcion1').checked;
+let opcion2 = document.getElementById('opcion2').checked;
+
+if(calle==""||num===""||esquina==""||localidad==""){Swal.fire({
+  icon: 'error',
+  title: 'No se pudo efectuar tu compra',
+  text: 'Intentalo otra vez, no olvides completar todos los datos',
+ 
+})
+
+}  
+  if(opcion1==true&&codigo==""||opcion1==true&&vencimiento==""||opcion1==true&&tarjeta=="")
+  {Swal.fire({
+    icon: 'error',
+    title: 'No se pudo efectuar tu compra',
+    text: 'Intentalo otra vez, no olvides completar todos los datos',
+   
+  })}
+if(opcion2==true&&cuenta==""){
+  Swal.fire({
+    icon: 'error',
+    title: 'No se pudo efectuar tu compra',
+    text: 'Intentalo otra vez, no olvides completar todos los datos',
+   
+  })}
+if(calle!=""&&num!=""&&esquina!=""&&localidad!=""&&opcion2==true&&cuenta!=""||
+calle!=""&&num!=""&&esquina!=""&&localidad!=""&&opcion1==true&&codigo!="" &&vencimiento!="" &&tarjeta!="")
+{ Swal.fire(
+  'Compra realizada!',
+  'Pronto llegará tu producto!',
+  'success'
+)}}
+

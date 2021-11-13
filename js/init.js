@@ -44,7 +44,9 @@ var getJSONData = function(url){
 
 function nombreUs (){
   var usuario= document.getElementById('usuario').value;
-
-  
+ var contraseña =  document.getElementById('contraseña').value;
+  var codifContraseña = md5(contraseña);
   localStorage.setItem('usnombre',usuario);
+  localStorage.setItem('contraseñaUs',codifContraseña)
 }
+
