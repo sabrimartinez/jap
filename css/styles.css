@@ -151,7 +151,7 @@ form#formu {
   position: relative;
 
   width  : 80%;
-  height : 30%;
+  height : 10%;
   margin : 0 auto;
 
   background:transparent
@@ -160,13 +160,13 @@ form#formu {
 
 
 
-div#formularios
+main#formularios
 {
 position:relative;
 
 width  : 45%;
-height : 30%;
-margin-left: 50%;
+height : 10%;
+
 background: transparent;
 }
 body.text-center{
