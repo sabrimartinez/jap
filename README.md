@@ -1,1 +1,2 @@
-# ecommerce-capacitador
+# ecommerce
+https://sabrimartinez.github.io/jap/
